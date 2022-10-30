@@ -13,4 +13,23 @@
     <servlet-name>firstServlet</servlet-name>
     <url-pattern>/first</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>lifeServlet</servlet-name>
+    <!--类的位置LiftServlet-->
+    <servlet-class>com.mao.servlet.LifeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>lifeServlet</servlet-name>
+    <!--访问地址-->
+    <url-pattern>/scend</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>register</servlet-name>
+    <servlet-class>com.mao.servlet.regServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
 </web-app>
+

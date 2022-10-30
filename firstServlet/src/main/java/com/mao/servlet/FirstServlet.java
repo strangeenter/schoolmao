@@ -21,5 +21,6 @@ public class FirstServlet extends HttpServlet {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
         writer.print("<p>毛磊作业:</p>");
         writer.print("<p> 这是我的第一个Servlet 服务器时间是:"+ simpleDateFormat.format(new Date()) + "</p>");
+        writer.print("<p> <a href = '/'> 返回 </p>");
     }
 }
