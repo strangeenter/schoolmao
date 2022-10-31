@@ -1,0 +1,8 @@
+一次请求的过程：
+1.页面填写 点击提交 请求到Servlet
+2.在Servlet 调用service处理业务
+3.在service调用dao层  对数据库进行增删改查
+4.dao层返回结果给service层
+5.service返回结果给Servlet
+6.Servlet返回结果给页面展示
+层与层之间使用接口连接

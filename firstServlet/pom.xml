@@ -7,7 +7,11 @@
   <groupId>com.mao</groupId>
   <artifactId>firstServlet</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <modules>
+        <module>userCrud</module>
+      <module>userCrud</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>firstServlet Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
