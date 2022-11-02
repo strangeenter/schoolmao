@@ -11,7 +11,7 @@ import java.util.ArrayList;
 //实现接口用implements
 //alt+回车实现方法
 public class UserServiceImpl implements UserService {
-    private User userDao= new User();
+    private UserDao userDao= new UserDaoImpl();
 
     /**
      * @param user
@@ -39,7 +39,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Integer id) {
-        return null;
+        User user = null;
+        try {
+            user = userDao.getUser(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
     }
 
     @Override

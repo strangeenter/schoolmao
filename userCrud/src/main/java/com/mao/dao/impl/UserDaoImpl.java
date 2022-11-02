@@ -4,9 +4,11 @@ import com.mao.dao.UserDao;
 import com.mao.pojo.User;
 import com.mao.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -37,8 +39,22 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUser(Integer id) {
-        return null;
+    public User getUser(Integer id) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(dataSource);
+        String sql = "select id,name,email,birthday from user where id = ?";
+        Object[] params = {id};
+        Object[] query = queryRunner.query(dataSource.getConnection(), sql, new ArrayHandler(),params);
+        User user = new User();
+        user.setId(Integer.valueOf(query[0].toString()));
+        user.setName(query[1].toString());
+        user.setEmail(query[2].toString());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            user.setDate(simpleDateFormat.parse(query[3].toString()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        return user ;
     }
 
     @Override

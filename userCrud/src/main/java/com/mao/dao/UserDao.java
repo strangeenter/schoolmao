@@ -11,7 +11,7 @@ public interface UserDao {
 
     ArrayList<User>  listUser();
 
-    User getUser(Integer id);
+    User getUser(Integer id) throws SQLException;
 
     boolean deleteUser(Integer id);
 

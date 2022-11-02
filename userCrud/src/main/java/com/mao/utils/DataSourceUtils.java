@@ -21,7 +21,7 @@ public class DataSourceUtils {
 		try {
 			// 加载配置文件
 			Properties prop =new Properties();
-			prop.load(new FileInputStream("D:\\java\\project\\school\\mao\\src\\main\\resources\\druid.properties"));
+			prop.load(new FileInputStream("J:\\work\\schoolmao\\userCrud\\src\\main\\resources\\druid.properties"));
 			dataSource = DruidDataSourceFactory.createDataSource(prop);
 		} catch (IOException e) {
 			e.printStackTrace();

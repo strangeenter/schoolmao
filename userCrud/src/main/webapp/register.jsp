@@ -5,7 +5,7 @@
     <title>注册页面</title>
 </head>
 <body>
-<form action="RegisterUserServlet" method="post">
+<form action="/RegisterUserServlet" method="post">
     用户名：<input type="text" name="name"><br>
     密 码：<input type="password" name="password"><br/>
     邮 箱：<input type="text" name="email"><br>
