@@ -58,7 +58,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean deleteUser(Integer id) {
+    public boolean deleteUser(Integer id) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(dataSource);
+        String sql = "delete from user where id = ?";
+        Object[] params = {id};
+        int update = queryRunner.update(sql);
+        if (update ==1 ){
+            return true;
+        }
         return false;
     }
 

@@ -50,7 +50,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(Integer id) {
-        return false;
+        try {
+            return userDao.deleteUser(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

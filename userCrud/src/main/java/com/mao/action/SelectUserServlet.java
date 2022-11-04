@@ -3,6 +3,7 @@ package com.mao.action;
 import com.mao.pojo.User;
 import com.mao.service.UserService;
 import com.mao.service.impl.UserServiceImpl;
+import com.mao.utils.DateForMat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,9 +29,9 @@ public class SelectUserServlet extends HttpServlet {
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("id",user.getId());
         map.put("name",user.getName());
-        map.put("birthday",user.getDate());
+        map.put("birthday", DateForMat.format(user.getDate()));
         map.put("email",user.getEmail());
-        request.setAttribute("date",map);
-        response.sendRedirect("UserOne.jsp");
+        request.setAttribute("data",map);
+        request.getRequestDispatcher("user/userview.jsp").forward(request, response);
     }
 }

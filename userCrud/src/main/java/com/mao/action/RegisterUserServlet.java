@@ -40,9 +40,9 @@ public class RegisterUserServlet extends HttpServlet {
             UserService userService = new UserServiceImpl();
             Boolean res = userService.RegisterUser(user);
             if (res){
-                response.sendRedirect("success.jsp");
+                response.sendRedirect("sys/success.jsp");
             }else {
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("sys/error.jsp");
             }
         } catch (ParseException e) {
             throw new RuntimeException(e);

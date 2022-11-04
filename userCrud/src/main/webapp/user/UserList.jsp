@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="../sys/common.jsp" %>
 <html>
 <head>
     <title>所有用户</title>
@@ -14,7 +15,7 @@
 <table border=" 1px">
     <tr align="center" style="font-weight:bold;">
         <td  width="10%">
-            序号
+            id
         </td>
         <td  width="10%">
             用户名
@@ -31,16 +32,16 @@
     </tr>
     <tr>
         <td  width="10%">
-            1
+            ${data['id']}
         </td>
         <td  width="10%">
-            毛磊
+            ${data['name']}
         </td>
         <td  width="10%">
-            123
+            ${data['email']}
         </td>
         <td  width="10%">
-            生日
+            ${data['birthday']}
         </td>
         <td>
             <a href="" >编辑</a>
