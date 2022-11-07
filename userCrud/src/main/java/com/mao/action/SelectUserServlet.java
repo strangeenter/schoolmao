@@ -1,5 +1,6 @@
 package com.mao.action;
 
+import com.mao.exception.IdNullException;
 import com.mao.pojo.User;
 import com.mao.service.UserService;
 import com.mao.service.impl.UserServiceImpl;
@@ -24,7 +25,14 @@ public class SelectUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //request：请求 getparamter:获得请求里的参数
-        Integer  id = Integer.valueOf(request.getParameter("id"));
+        Integer  id = null;
+        try {
+            String stringId = request.getParameter("id");
+            id = Integer.valueOf(stringId);
+        } catch (Exception exception) {
+            throw new IdNullException("id不能为空");
+        }
+
         User user = userService.getUser(id);
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("id",user.getId());
